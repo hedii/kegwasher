@@ -59,11 +59,11 @@ typedef struct mode_s {
   step_t *steps;
 } mode_t;
 
-// 579sec (9min39sec)
+// 579sec (9min39)
 step_t STEPS_WASH_KEG[] = {
-  // 25 sec
+  // 25sec
   {CONFIG_DRAIN, 25},
-  // 103 sec (1min43)
+  // 103sec (1min43)
   {CONFIG_RINCE, 10},
   {CONFIG_RINCE_PURGE, 20},
   {CONFIG_RINCE, 3},
@@ -96,7 +96,7 @@ step_t STEPS_WASH_KEG[] = {
   {CONFIG_RINCE_PURGE, 20},
   {CONFIG_RINCE, 10},
   {CONFIG_RINCE_PURGE, 20},
-  // 113min (1min53)
+  // 113sec (1min53)
   {CONFIG_SANITIZE, 10},
   {CONFIG_SANITIZE_PURGE, 15},
   {CONFIG_SANITIZE, 10},
@@ -109,15 +109,15 @@ step_t STEPS_WASH_KEG[] = {
   {CONFIG_SANITIZE_PURGE, 20},
   // 45sec
   {CONFIG_RINCE, 15},
-  {CONFIG_RINCE_PURGE_CO2, 30},
+  {CONFIG_RINCE_PURGE, 30},
   {CONFIG_END, 0}
 };
 
-// 609sec (10min09sec)
+// 609sec (10min09)
 step_t STEPS_WASH_KEG_PRESSURIZE[] = {
-  // 25 sec
+  // 25sec
   {CONFIG_DRAIN, 25},
-  // 103 sec (1min43)
+  // 103sec (1min43)
   {CONFIG_RINCE, 10},
   {CONFIG_RINCE_PURGE, 20},
   {CONFIG_RINCE, 3},
@@ -150,7 +150,7 @@ step_t STEPS_WASH_KEG_PRESSURIZE[] = {
   {CONFIG_RINCE_PURGE, 20},
   {CONFIG_RINCE, 10},
   {CONFIG_RINCE_PURGE, 20},
-  // 113min (1min53)
+  // 113sec (1min53)
   {CONFIG_SANITIZE, 10},
   {CONFIG_SANITIZE_PURGE, 15},
   {CONFIG_SANITIZE, 10},
@@ -169,6 +169,36 @@ step_t STEPS_WASH_KEG_PRESSURIZE[] = {
   {CONFIG_END, 0}
 };
 
+// 333sec (5min30)
+step_t STEPS_SANITIZE_KEG_PRESSURIZE[] = {
+  // 25sec
+  {CONFIG_DRAIN, 10},
+  // 30sec
+  {CONFIG_RINCE, 10},
+  {CONFIG_RINCE_PURGE, 20},
+  // 203sec (3min23)
+  {CONFIG_SANITIZE, 10},
+  {CONFIG_SANITIZE_PURGE, 15},
+  {CONFIG_SANITIZE, 10},
+  {CONFIG_SANITIZE_PURGE, 15},
+  {CONFIG_SANITIZE, 10},
+  {CONFIG_SANITIZE_PURGE, 15},
+  {CONFIG_SANITIZE, 3},
+  {CONFIG_SANITIZE_PURGE, 5},
+  {CONFIG_SANITIZE, 10},
+  {CONFIG_SANITIZE_PURGE, 20},
+  {CONFIG_SANITIZE, 15},
+  {CONFIG_SANITIZE_PURGE, 25},
+  {CONFIG_SANITIZE, 20},
+  {CONFIG_SANITIZE_PURGE, 30},
+  // 45sec
+  {CONFIG_RINCE, 15},
+  {CONFIG_RINCE_PURGE_CO2, 30},
+  // 30sec
+  {CONFIG_CO2, 30},
+  {CONFIG_END, 0}
+};
+
 step_t STEPS_DRAIN_KEG[] = {
   {CONFIG_DRAIN, 10},
   {CONFIG_RINCE_PURGE, 60},
@@ -178,6 +208,7 @@ step_t STEPS_DRAIN_KEG[] = {
 mode_t MODES[] = {
   {"Lavage", STEPS_WASH_KEG},
   {"Lavage CO2", STEPS_WASH_KEG_PRESSURIZE},
+  {"Desinf. CO2", STEPS_SANITIZE_KEG_PRESSURIZE},
   {"Vidange fut", STEPS_DRAIN_KEG},
 };
 
