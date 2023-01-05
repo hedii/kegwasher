@@ -59,64 +59,89 @@ typedef struct mode_s {
   step_t *steps;
 } mode_t;
 
+// 579sec (9min39sec)
 step_t STEPS_WASH_KEG[] = {
-  {CONFIG_DRAIN, 10},
+  // 25 sec
+  {CONFIG_DRAIN, 25},
+  // 103 sec (1min43)
   {CONFIG_RINCE, 10},
   {CONFIG_RINCE_PURGE, 20},
+  {CONFIG_RINCE, 3},
+  {CONFIG_RINCE_PURGE, 10},
+  {CONFIG_RINCE, 10},
+  {CONFIG_RINCE_PURGE, 20},
+  {CONFIG_RINCE, 10},
+  {CONFIG_RINCE_PURGE, 20},
+  // 203sec (3min23)
   {CONFIG_CLEAN, 10},
   {CONFIG_CLEAN_PURGE, 15},
   {CONFIG_CLEAN, 10},
   {CONFIG_CLEAN_PURGE, 15},
   {CONFIG_CLEAN, 10},
-  {CONFIG_CLEAN_PURGE, 20},
+  {CONFIG_CLEAN_PURGE, 15},
+  {CONFIG_CLEAN, 3},
+  {CONFIG_CLEAN_PURGE, 5},
+  {CONFIG_CLEAN, 10},
+  {CONFIG_CLEAN_PURGE, 15},
+  {CONFIG_CLEAN, 20},
+  {CONFIG_CLEAN_PURGE, 25},
+  {CONFIG_CLEAN, 20},
+  {CONFIG_CLEAN_PURGE, 30},
+  // 90sec (1min30)
   {CONFIG_RINCE, 3},
   {CONFIG_RINCE_PURGE, 10},
   {CONFIG_RINCE, 7},
   {CONFIG_RINCE_PURGE, 10},
   {CONFIG_RINCE, 10},
   {CONFIG_RINCE_PURGE, 20},
+  {CONFIG_RINCE, 10},
+  {CONFIG_RINCE_PURGE, 20},
+  // 113min (1min53)
   {CONFIG_SANITIZE, 10},
   {CONFIG_SANITIZE_PURGE, 15},
   {CONFIG_SANITIZE, 10},
   {CONFIG_SANITIZE_PURGE, 15},
+  {CONFIG_SANITIZE, 10},
+  {CONFIG_SANITIZE_PURGE, 15},
+  {CONFIG_SANITIZE, 3},
+  {CONFIG_SANITIZE_PURGE, 5},
   {CONFIG_SANITIZE, 10},
   {CONFIG_SANITIZE_PURGE, 20},
+  // 45sec
   {CONFIG_RINCE, 15},
-  {CONFIG_RINCE_PURGE, 25},
   {CONFIG_RINCE_PURGE_CO2, 30},
   {CONFIG_END, 0}
 };
 
-step_t STEPS_WASH_KEG_INTENSIVE[] = {
-  {CONFIG_DRAIN, 20},
+// 609sec (10min09sec)
+step_t STEPS_WASH_KEG_PRESSURIZE[] = {
+  // 25 sec
+  {CONFIG_DRAIN, 25},
+  // 103 sec (1min43)
+  {CONFIG_RINCE, 10},
+  {CONFIG_RINCE_PURGE, 20},
+  {CONFIG_RINCE, 3},
+  {CONFIG_RINCE_PURGE, 10},
   {CONFIG_RINCE, 10},
   {CONFIG_RINCE_PURGE, 20},
   {CONFIG_RINCE, 10},
   {CONFIG_RINCE_PURGE, 20},
-  {CONFIG_RINCE, 15},
-  {CONFIG_RINCE_PURGE, 25},
+  // 203sec (3min23)
   {CONFIG_CLEAN, 10},
   {CONFIG_CLEAN_PURGE, 15},
   {CONFIG_CLEAN, 10},
   {CONFIG_CLEAN_PURGE, 15},
   {CONFIG_CLEAN, 10},
   {CONFIG_CLEAN_PURGE, 15},
-  {CONFIG_CLEAN, 10},
-  {CONFIG_CLEAN_PURGE, 15},
-  {CONFIG_CLEAN, 10},
-  {CONFIG_CLEAN_PURGE, 15},
-  {CONFIG_CLEAN, 10},
-  {CONFIG_CLEAN_PURGE, 15},
+  {CONFIG_CLEAN, 3},
+  {CONFIG_CLEAN_PURGE, 5},
   {CONFIG_CLEAN, 10},
   {CONFIG_CLEAN_PURGE, 15},
   {CONFIG_CLEAN, 20},
   {CONFIG_CLEAN_PURGE, 25},
   {CONFIG_CLEAN, 20},
-  {CONFIG_CLEAN_PURGE, 25},
-  {CONFIG_CLEAN, 20},
-  {CONFIG_CLEAN_PURGE, 25},
-  {CONFIG_CLEAN, 10},
-  {CONFIG_CLEAN_PURGE, 35},
+  {CONFIG_CLEAN_PURGE, 30},
+  // 90sec (1min30)
   {CONFIG_RINCE, 3},
   {CONFIG_RINCE_PURGE, 10},
   {CONFIG_RINCE, 7},
@@ -125,16 +150,21 @@ step_t STEPS_WASH_KEG_INTENSIVE[] = {
   {CONFIG_RINCE_PURGE, 20},
   {CONFIG_RINCE, 10},
   {CONFIG_RINCE_PURGE, 20},
+  // 113min (1min53)
   {CONFIG_SANITIZE, 10},
   {CONFIG_SANITIZE_PURGE, 15},
   {CONFIG_SANITIZE, 10},
   {CONFIG_SANITIZE_PURGE, 15},
+  {CONFIG_SANITIZE, 10},
+  {CONFIG_SANITIZE_PURGE, 15},
+  {CONFIG_SANITIZE, 3},
+  {CONFIG_SANITIZE_PURGE, 5},
   {CONFIG_SANITIZE, 10},
   {CONFIG_SANITIZE_PURGE, 20},
-  {CONFIG_RINCE, 10},
-  {CONFIG_RINCE_PURGE, 25},
+  // 45sec
   {CONFIG_RINCE, 15},
-  {CONFIG_RINCE_PURGE_CO2, 40},
+  {CONFIG_RINCE_PURGE_CO2, 30},
+  // 30sec
   {CONFIG_CO2, 30},
   {CONFIG_END, 0}
 };
@@ -145,34 +175,10 @@ step_t STEPS_DRAIN_KEG[] = {
   {CONFIG_END, 0}
 };
 
-step_t STEPS_DRAIN_SANITIZER[] = {
-  {CONFIG_DRAIN_SANITIZER, 200},
-  {CONFIG_END, 0}
-};
-
-step_t STEPS_DRAIN_CLEANER[] = {
-  {CONFIG_DRAIN_CLEANER, 200},
-  {CONFIG_END, 0}
-};
-
-step_t STEPS_FILL_SANITIZER[] = {
-  {CONFIG_FILL_SANITIZER, 120},
-  {CONFIG_END, 0}
-};
-
-step_t STEPS_FILL_CLEANER[] = {
-  {CONFIG_FILL_CLEANER, 120},
-  {CONFIG_END, 0}
-};
-
 mode_t MODES[] = {
-  {"Lavage fut", STEPS_WASH_KEG},
-  {"Lavage int.", STEPS_WASH_KEG_INTENSIVE},
+  {"Lavage", STEPS_WASH_KEG},
+  {"Lavage CO2", STEPS_WASH_KEG_PRESSURIZE},
   {"Vidange fut", STEPS_DRAIN_KEG},
-  {"Vidange desinf.", STEPS_DRAIN_SANITIZER},
-  {"Vidange deter.", STEPS_DRAIN_CLEANER},
-  {"Rempl. desinf.", STEPS_FILL_SANITIZER},
-  {"Rempl. deter.", STEPS_FILL_CLEANER},
 };
 
 int MODES_NUMBER = sizeof(MODES) / sizeof(mode_t);
@@ -235,7 +241,7 @@ void select()
   lcd_printf("Mode :");
   lcd.setCursor(0, 1);
   lcd_printf("%c %s", CHAR_UP_DOWN, MODES[mode].name);
-  
+
   digitalWrite(PIN_LED, HIGH);
 
   state = STATE_SELECT_UPDATE;
@@ -249,13 +255,13 @@ void select_update()
   menuselect.tick();
   pos = menuselect.getPosition();
   new_mode = pos % MODES_NUMBER;
-  
+
   if( new_mode != mode ) {
     mode = new_mode;
     lcd.setCursor(0, 1);
     lcd_printf("%c %s", CHAR_UP_DOWN, MODES[mode].name);
   }
-  
+
   buttonAction.update();
   if( buttonAction.fell() ) {
     state = STATE_RUN;
@@ -311,7 +317,7 @@ void controls_set(unsigned int config)
 {
   // Turn off all controls to avoid temporary overconsumption
   controls_set_state(~config, HIGH, 0);
-  
+
   // Turn on all needed controls and wait slowly to avoid temporary overconsumption
   controls_set_state(config, LOW, 200);
 }
@@ -320,9 +326,9 @@ unsigned int step_set(int index)
 {
   step = index;
   step_start_time = seconds();
-  
+
   controls_set(MODES[mode].steps[step].config);
-  
+
   return MODES[mode].steps[step].config;
 }
 
@@ -333,7 +339,7 @@ void run()
   lcd_printf(MODES[mode].name);
   lcd.setCursor(0, 1);
   lcd_printf("Preparation");
-  
+
   int saved_mode = EEPROM.read(EEPROM_ADDRESS_MODE);
   if( mode != saved_mode ) {
     EEPROM.write(EEPROM_ADDRESS_MODE, mode);
@@ -391,10 +397,10 @@ void terminate()
   controls_set(0);
 
   digitalWrite(PIN_LED, LOW);
-  
+
   lcd.setCursor(0, 1);
   lcd_printf(" Termine");
-  
+
   for( int i=0 ; i<3 ; i++ ) {
     tone(PIN_BUZZER, 1760, 800);
     delay(1000);
@@ -406,15 +412,15 @@ void terminate()
 void cancel()
 {
   controls_set(0);
-  
+
   digitalWrite(PIN_LED, LOW);
-  
+
   lcd.setCursor(0, 1);
   lcd_printf(" Annule");
-  
+
   tone(PIN_BUZZER, 1760, 800);
   delay(1000);
-  
+
   state = STATE_SELECT;
 }
 
@@ -444,7 +450,7 @@ void setup()
   lcd.init();
   lcd.backlight();
   lcd.createChar(CHAR_UP_DOWN, CHAR_UP_DOWN_SETUP);
-  
+
   mode = EEPROM.read(EEPROM_ADDRESS_MODE);
   mode = constrain(mode, 0, MODES_NUMBER - 1);
 }
