@@ -347,10 +347,10 @@ void controls_set_state(unsigned int config, int state, int delay_time)
 void controls_set(unsigned int config)
 {
   // Turn off all controls to avoid temporary overconsumption
-  controls_set_state(~config, HIGH, 0);
+  controls_set_state(~config, LOW, 0);
 
   // Turn on all needed controls and wait slowly to avoid temporary overconsumption
-  controls_set_state(config, LOW, 200);
+  controls_set_state(config, HIGH, 200);
 }
 
 unsigned int step_set(int index)
